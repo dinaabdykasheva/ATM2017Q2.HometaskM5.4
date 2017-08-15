@@ -1,9 +1,5 @@
 package user;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Geo {
 
     private String lat;

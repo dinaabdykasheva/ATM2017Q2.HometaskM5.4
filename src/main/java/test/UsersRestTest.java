@@ -24,19 +24,19 @@ public class UsersRestTest {
         Response response = given().get("/users").andReturn();
         int actualStatusCode = response.getStatusCode();
         System.out.println(actualStatusCode);
-        Assert.assertEquals(actualStatusCode, 200);
+        Assert.assertEquals(actualStatusCode, 200, "Request isn't successful");
     }
 
     @Test
     public void checkResponseHeader() {
         Response response = given().get("/users").andReturn();
         String valueOfContentTypeHeader = response.getHeader("content-type");
-        Assert.assertTrue(valueOfContentTypeHeader.contains("application/json; charset=utf-8"));
+        Assert.assertTrue(valueOfContentTypeHeader.contains("application/json; charset=utf-8"), "Header isn't correct");
     }
     @Test
     public void checkResponseBody() {
         Response response = given().get("/users").andReturn();
         User[] users = response.as(User[].class);
-        Assert.assertEquals(users.length, 10);
+        Assert.assertEquals(users.length, 10, "Users amount isn't 10");
     }
 }
